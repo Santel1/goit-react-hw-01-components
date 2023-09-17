@@ -1,12 +1,9 @@
-import { Profile } from 'components/Profile';
-import { Statistic, StatisticItem } from 'components/Statistics';
-import { FriendsList, FriendsListItem } from 'components/Friends';
-import {
-  TransactionItem,
-  TransactionTable,
-} from 'components/TransactionHistory';
+import { Profile } from 'components/Profile/Profile';
+import { Statistic } from 'components/Statistics/Statistics';
+import { FriendsList } from 'components/Friends/Friends';
+import { TransactionTable } from 'components/TransactionHistory/TransactionHistory';
 import user from '../src/api/user.json';
-import stats from '../src/api/data.json';
+import data from '../src/api/data.json';
 import friends from '../src/api/friends.json';
 import transactions from '../src/api/transactions.json';
 
@@ -21,43 +18,9 @@ export const App = () => {
         stats={user.stats}
       />
 
-      <Statistic title="Upload stats">
-        {stats.map(stat => {
-          return (
-            <StatisticItem
-              key={stat.id}
-              label={stat.label}
-              percentage={stat.percentage}
-            />
-          );
-        })}
-      </Statistic>
-
-      <FriendsList>
-        {friends.map(friend => {
-          return (
-            <FriendsListItem
-              key={friend.id}
-              isOnline={friend.isOnline}
-              avatar={friend.avatar}
-              name={friend.name}
-            />
-          );
-        })}
-      </FriendsList>
-
-      <TransactionTable>
-        {transactions.map(transaction => {
-          return (
-            <TransactionItem
-              key={transaction.id}
-              type={transaction.type}
-              amount={transaction.amount}
-              currency={transaction.currency}
-            />
-          );
-        })}
-      </TransactionTable>
+      <Statistic title="Upload stats" data={data} />
+      <FriendsList friends={friends} />
+      <TransactionTable transactions={transactions} />
     </div>
   );
 };

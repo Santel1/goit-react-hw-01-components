@@ -11,7 +11,7 @@
   flex-direction: row;
   gap: 8px;
 }
-.item {
+.statItem {
   display: flex;
   flex-direction: column;
   align-items: center;

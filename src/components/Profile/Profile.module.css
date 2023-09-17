@@ -30,8 +30,7 @@
 .tag {
   font-weight: 300;
 }
-.location {
-}
+
 .stats {
   display: flex;
   align-items: center;
@@ -40,8 +39,6 @@
 }
 .label {
   font-weight: 600;
-}
-.quantity {
 }
 
 .item {

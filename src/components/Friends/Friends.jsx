@@ -1,7 +1,20 @@
 import css from './Friends.module.css';
 
-export const FriendsList = props => {
-  return <ul className={css.friendList}>{props.children}</ul>;
+export const FriendsList = ({ friends }) => {
+  return (
+    <ul className={css.friendList}>
+      {friends.map(({ id, isOnline, avatar, name }) => {
+        return (
+          <FriendsListItem
+            key={id}
+            isOnline={isOnline}
+            avatar={avatar}
+            name={name}
+          />
+        );
+      })}
+    </ul>
+  );
 };
 
 export const FriendsListItem = props => {
